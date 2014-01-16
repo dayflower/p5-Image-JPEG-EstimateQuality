@@ -53,5 +53,16 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/dayflower/p5-Image-JpegQuality/issues"
+      },
+      "homepage" : "https://github.com/dayflower/p5-Image-JpegQuality",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/dayflower/p5-Image-JpegQuality.git",
+         "web" : "https://github.com/dayflower/p5-Image-JpegQuality"
+      }
+   },
    "version" : "0.01"
 }
