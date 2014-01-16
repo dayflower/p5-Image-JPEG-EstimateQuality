@@ -29,7 +29,7 @@ sub jpeg_quality {
     my ($fh, $r);
     if (! ref $file) {
         $fh = IO::File->new;
-        $fh->open($file, 'r')  or croak ERR_FILE_READ . qq{: $!};
+        $fh->open($file, 'r')  or croak ERR_FILE_READ . qq{($file): $!};
         $fh->binmode();
         $r = _jpeg_quality_for_fh($fh);
         $fh->close();
