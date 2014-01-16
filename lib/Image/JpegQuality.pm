@@ -35,8 +35,8 @@ sub jpeg_quality {
         $fh->close();
         return $r;
     } elsif (ref $file eq 'GLOB') {
+        binmode $file;
         $fh = $file;
-        $fh->binmode();
         $r = _jpeg_quality_for_fh($fh);
         return $r;
     } elsif (ref $file eq 'SCALAR') {
