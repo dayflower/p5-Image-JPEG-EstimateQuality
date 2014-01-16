@@ -151,9 +151,9 @@ Image::JpegQuality - Estimate quality of JPEG images.
 
     use Image::JpegQuality;
 
-    say jpeg_quality('filename.jpg');
-    say jpeg_quality(HANDLE);
-    say jpeg_quality(\$image_data);
+    jpeg_quality('filename.jpg');   # => 1..100 integer value
+    jpeg_quality(FILEHANDLE);
+    jpeg_quality(\$image_data);
 
 =head1 DESCRIPTION
 
