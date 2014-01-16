@@ -4,8 +4,6 @@ use strict;
 use warnings;
 use Exporter 'import';
 use Carp;
-use IO::Handle;
-use IO::File;
 
 our $VERSION = "0.01";
 
@@ -28,26 +26,21 @@ sub jpeg_quality {
 
     my ($fh, $r);
     if (! ref $file) {
-        $fh = IO::File->new;
-        $fh->open($file, 'r')  or croak ERR_FILE_READ . qq{($file): $!};
-        $fh->binmode();
+        open $fh, '<', $file  or croak ERR_FILE_READ . qq{($file): $!};
+        binmode $fh;
         $r = _jpeg_quality_for_fh($fh);
-        $fh->close();
-        return $r;
-    } elsif (ref $file eq 'GLOB') {
-        binmode $file;
-        $fh = $file;
-        $r = _jpeg_quality_for_fh($fh);
+        close $fh;
         return $r;
     } elsif (ref $file eq 'SCALAR') {
+        # image data in memory
         open $fh, '<', $file  or croak ERR_FILE_READ . qq{: $!};
-        $fh->binmode();
+        binmode $fh;
         $r = _jpeg_quality_for_fh($fh);
-        $fh->close();
+        close $fh;
         return $r;
-    } elsif (eval { $file->can('read') }) {
+    } elsif (ref $file eq 'GLOB' || eval { $file->isa('IO::Handle') }) {
+        binmode $file;
         $fh = $file;
-        $fh->binmode();
         $r = _jpeg_quality_for_fh($fh);
         return $r;
     } else {
@@ -61,11 +54,11 @@ sub _jpeg_quality_for_fh {
     my ($fh) = @_;
     my ($buf);
 
-    $fh->read($buf, 2)  or croak ERR_FILE_READ . qq{: $!};
+    read $fh, $buf, 2  or croak ERR_FILE_READ . qq{: $!};
     croak ERR_NOT_JPEG unless $buf eq SOI;
 
     while (1) {
-        $fh->read($buf, 2)  or croak ERR_FILE_READ . qq{: $!};
+        read $fh, $buf, 2  or croak ERR_FILE_READ . qq{: $!};
 
         if ($buf eq EOI) {
             croak ERR_FAILED;
@@ -79,20 +72,20 @@ sub _jpeg_quality_for_fh {
 
         if ($buf ne DQT) {
             # skip to next segment
-            $fh->read($buf, 2)  or croak ERR_FILE_READ . qq{: $!};
+            read $fh, $buf, 2  or croak ERR_FILE_READ . qq{: $!};
             my $len = unpack 'n', $buf;
-            $fh->seek($len - 2, 1)  or croak ERR_FILE_READ . qq{: $!};
+            seek $fh, $len - 2, 1  or croak ERR_FILE_READ . qq{: $!};
             next;
         }
 
         # read DQT length
-        $fh->read($buf, 2)  or croak ERR_FILE_READ . qq{: $!};
+        read $fh, $buf, 2  or croak ERR_FILE_READ . qq{: $!};
         my $len = unpack 'n', $buf;
         $len -= 2;
         croak ERR_FAILED unless $len >= 64+1;
 
         # read DQT
-        $fh->read($buf, $len)  or croak ERR_FILE_READ . qq{: $!};
+        read $fh, $buf, $len  or croak ERR_FILE_READ . qq{: $!};
 
         my $dqt8bit = ((ord substr($buf, 0, 1) & 0xF0) == 0);
 
