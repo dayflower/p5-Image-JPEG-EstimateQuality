@@ -23,8 +23,8 @@ my %args = (
         'Module::Build' => 0.38,
     },
 
-    name            => 'Image-JpegQuality',
-    module_name     => 'Image::JpegQuality',
+    name            => 'Image-JPEG-Quality',
+    module_name     => 'Image::JPEG::Quality',
     allow_pureperl => 0,
 
     script_files => [glob('script/*'), glob('bin/*')],

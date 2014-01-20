@@ -2,7 +2,7 @@ use strict;
 use Test::More;
 
 use_ok $_ for qw(
-    Image::JpegQuality
+    Image::JPEG::Quality
 );
 
 done_testing;

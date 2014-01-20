@@ -1,4 +1,4 @@
-package Image::JpegQuality;
+package Image::JPEG::Quality;
 use 5.008005;
 use strict;
 use warnings;
@@ -138,11 +138,11 @@ __END__
 
 =head1 NAME
 
-Image::JpegQuality - Estimate quality of JPEG images.
+Image::JPEG::Quality - Estimate quality of JPEG images.
 
 =head1 SYNOPSIS
 
-    use Image::JpegQuality;
+    use Image::JPEG::Quality;
 
     jpeg_quality('filename.jpg');   # => 1..100 integer value
     jpeg_quality(FILEHANDLE);
@@ -150,7 +150,7 @@ Image::JpegQuality - Estimate quality of JPEG images.
 
 =head1 DESCRIPTION
 
-Image::JpegQuality determines quality of JPEG file.
+Image::JPEG::Quality determines quality of JPEG file.
 It's approximate value because the quality is not stored in the file explicitly.
 This module calculates quality from luminance quantization table stored in the file.
 

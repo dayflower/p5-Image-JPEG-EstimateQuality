@@ -3,7 +3,7 @@ use warnings;
 use Test::More;
 use IO::File;
 
-use Image::JpegQuality;
+use Image::JPEG::Quality;
 
 ok jpeg_quality('t/img/q080.jpg') > 0, "filename";
 

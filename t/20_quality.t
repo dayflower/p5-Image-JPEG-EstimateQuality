@@ -2,7 +2,7 @@ use strict;
 use warnings;
 use Test::More;
 
-use Image::JpegQuality;
+use Image::JPEG::Quality;
 
 # These files are saved by GIMP 2.8.6.
 my @tests = (
