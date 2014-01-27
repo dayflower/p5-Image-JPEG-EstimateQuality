@@ -1,11 +1,11 @@
 [![Build Status](https://travis-ci.org/dayflower/p5-Image-JpegQuality.png?branch=master)](https://travis-ci.org/dayflower/p5-Image-JpegQuality)
 # NAME
 
-Image::JPEG::Quality - Estimate quality of JPEG images.
+Image::JPEG::EstimateQuality - Estimate quality of JPEG images.
 
 # SYNOPSIS
 
-    use Image::JPEG::Quality;
+    use Image::JPEG::EstimateQuality;
 
     jpeg_quality('filename.jpg');   # => 1..100 integer value
     jpeg_quality(FILEHANDLE);
@@ -13,7 +13,7 @@ Image::JPEG::Quality - Estimate quality of JPEG images.
 
 # DESCRIPTION
 
-Image::JPEG::Quality determines quality of JPEG file.
+Image::JPEG::EstimateQuality determines quality of JPEG file.
 It's approximate value because the quality is not stored in the file explicitly.
 This module calculates quality from luminance quantization table stored in the file.
 
