@@ -168,6 +168,13 @@ Returns quality (1-100) of JPEG file.
 
 =back
 
+=head1 SCRIPT
+
+A script F<jpeg-quality> distributed with the module prints the quality of a JPEG specified on the command line:
+
+    jpeg-quality image.jpg
+    90
+
 =head1 LICENSE
 
 Copyright (C) ITO Nobuaki.
