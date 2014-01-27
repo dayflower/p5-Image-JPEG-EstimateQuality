@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/dayflower/p5-Image-JpegQuality.png?branch=master)](https://travis-ci.org/dayflower/p5-Image-JpegQuality)
+[![Build Status](https://travis-ci.org/dayflower/p5-Image-JPEG-EstimateQuality.png?branch=master)](https://travis-ci.org/dayflower/p5-Image-JPEG-EstimateQuality)
 # NAME
 
 Image::JPEG::EstimateQuality - Estimate quality of JPEG images.

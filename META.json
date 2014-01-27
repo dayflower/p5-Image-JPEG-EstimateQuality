@@ -55,13 +55,13 @@
    "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/dayflower/p5-Image-JpegQuality/issues"
+         "web" : "https://github.com/dayflower/p5-Image-JPEG-EstimateQuality/issues"
       },
-      "homepage" : "https://github.com/dayflower/p5-Image-JpegQuality",
+      "homepage" : "https://github.com/dayflower/p5-Image-JPEG-EstimateQuality",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/dayflower/p5-Image-JpegQuality.git",
-         "web" : "https://github.com/dayflower/p5-Image-JpegQuality"
+         "url" : "git://github.com/dayflower/p5-Image-JPEG-EstimateQuality.git",
+         "web" : "https://github.com/dayflower/p5-Image-JPEG-EstimateQuality"
       }
    },
    "version" : "0.01"
