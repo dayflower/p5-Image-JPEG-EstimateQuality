@@ -4,6 +4,7 @@
 /Build.bat
 /blib
 
+/cpanfile.spanshot
 /carton.lock
 /.carton/
 /local/
