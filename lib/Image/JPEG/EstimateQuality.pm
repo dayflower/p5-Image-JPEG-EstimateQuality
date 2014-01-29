@@ -5,7 +5,7 @@ use warnings;
 use Exporter 'import';
 use Carp;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 our @EXPORT = qw( jpeg_quality );
 

@@ -27,6 +27,13 @@ This module calculates quality from luminance quantization table stored in the f
         scalarref:  JPEG data itself
         file-glob:  file handle
 
+# SCRIPT
+
+A script `jpeg-quality` distributed with the module prints the quality of a JPEG specified on the command line:
+
+    jpeg-quality image.jpg
+    90
+
 # LICENSE
 
 Copyright (C) ITO Nobuaki.
